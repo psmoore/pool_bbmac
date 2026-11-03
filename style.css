@@ -192,3 +192,5 @@ details.more > div{ padding:4px 16px 16px }
 .finder .split{ grid-template-columns:1fr; min-height:0 }
 .finder #map{ display:none }
 .finder .results{ border-right:0; max-height:none }
+
+.contact{overflow-wrap:anywhere}

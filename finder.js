@@ -376,7 +376,8 @@
           const closure = evs.find((o) => isClosure(o) && o.date <= d && (o.endDate || o.date) >= d);
           const on = open.filter((o) => o.date === d);
           const regular = w ? w.hours[dow(d)] : "";
-          const h = closure ? T("Closed") : on.length ? hoursOf(on, true) : regular ? T("Closed") : "";
+          // A closure only matters on a day the program would otherwise run.
+          const h = closure ? (regular || on.length ? T("Closed") : "") : on.length ? hoursOf(on, true) : regular ? T("Closed") : "";
           if (h !== regular && (h || regular)) {
             const prev = rows[rows.length - 1];
             // Consecutive closed days read as one line: "Wed, Nov 25 – Fri, Nov 27: Closed".
